@@ -23,7 +23,7 @@ dependency "rg" {
 }
 
 dependency "nsg" {
-  config_path = "../../network/security-group/nsg-aks-dev"
+  config_path = "../../network-security-group/nsg-aks-dev"
 }
 
 inputs = {
