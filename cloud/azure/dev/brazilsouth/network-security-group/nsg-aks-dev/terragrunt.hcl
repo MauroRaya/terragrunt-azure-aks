@@ -11,7 +11,7 @@ locals {
 }
 
 terraform {
-  source = "git::https://github.com/${local.username}/${repository_name}//network-security-group?ref=main"
+  source = "git::https://github.com/${local.username}/${local.repository_name}//network-security-group?ref=main"
 }
 
 include "root" {
