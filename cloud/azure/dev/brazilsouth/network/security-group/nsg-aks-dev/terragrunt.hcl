@@ -11,7 +11,7 @@ locals {
 }
 
 terraform {
-  source = "git::https://github.com/${local.username}/${repository_name}//network-security-group?ref=main"
+  source = "git::https://github.com/${local.username}/${repository_name}//network/security-group?ref=main"
 }
 
 include "root" {
@@ -26,18 +26,4 @@ inputs = {
   name                = "nsg-aks-${local.environment}"
   location            = local.location
   resource_group_name = dependency.rg.outputs.name
-
-  security_rule = [
-    {
-        name                       = "AllowSSH"
-        priority                   = 100
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "TCP"
-        source_port_range          = "*"
-        destionation_port_range    = "22"
-        source_address_prefix      = "*"
-        destination_address_prefix = "*"
-    }
-  ]
 }
